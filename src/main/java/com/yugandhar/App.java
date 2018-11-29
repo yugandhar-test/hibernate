@@ -9,19 +9,39 @@ public class App
 {
     public static void main( String[] args )
     {
+        Configuration configuration;
+        SessionFactory sessionFactory;
+        Session session;
+        Transaction transaction;
 
-        Alien alien ;
+        Alien alien = new Alien();
+        Spaceships spaceships = new Spaceships();
+
+        alien.setId(06);
+        alien.setName("Yugandhar");
+        alien.setColor("brown");
+
+
+        spaceships.setShipId(69);
+        spaceships.setShipName("Flying Machine");
+//        spaceships.setAlien(alien);
+
+        alien.setSpaceships(spaceships);
+
         try {
 
-           Configuration configuration = new Configuration().configure().addAnnotatedClass(Alien.class);
+            configuration = new Configuration().configure().addAnnotatedClass(Alien.class).addAnnotatedClass(Spaceships.class);
 
-            SessionFactory sessionFactory = configuration.buildSessionFactory();
+            sessionFactory = configuration.buildSessionFactory();
 
-            Session session =sessionFactory.openSession();
+            session =sessionFactory.openSession();
 
-            Transaction transaction = session.beginTransaction();
+            transaction = session.beginTransaction();
 
-            alien = session.get(Alien.class,"1");
+            session.save(alien);
+            session.save(spaceships);
+
+            transaction.commit();
 
             session.close();
         }

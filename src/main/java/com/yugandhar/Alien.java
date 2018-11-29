@@ -1,18 +1,28 @@
 package com.yugandhar;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 //pojo
 @Entity
 public class Alien {
 
     @Id
-    @GeneratedValue
     private int id;
     private String name;
     private String color;
+
+    @OneToOne
+    private Spaceships spaceships;
+
+    public Spaceships getSpaceships() {
+        return spaceships;
+    }
+
+    public void setSpaceships(Spaceships spaceships) {
+        this.spaceships = spaceships;
+    }
 
     public int getId() {
         return id;
