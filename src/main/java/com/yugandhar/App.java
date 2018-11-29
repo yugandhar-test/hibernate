@@ -10,10 +10,7 @@ public class App
     public static void main( String[] args )
     {
 
-        Alien alien = new Alien();
-        alien.setName("yugandhar");
-        alien.setColor("Brown");
-
+        Alien alien ;
         try {
 
            Configuration configuration = new Configuration().configure().addAnnotatedClass(Alien.class);
@@ -24,9 +21,7 @@ public class App
 
             Transaction transaction = session.beginTransaction();
 
-            session.save(alien);
-
-            transaction.commit();
+            alien = session.get(Alien.class,"1");
 
             session.close();
         }
