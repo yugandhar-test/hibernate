@@ -15,18 +15,21 @@ public class App
         Transaction transaction;
 
         Alien alien = new Alien();
-        Spaceships spaceships = new Spaceships();
+
+        Spaceships spaceships1 = new Spaceships();
+        Spaceships spaceships2 = new Spaceships();
+
+        spaceships1.setShipId(93);
+        spaceships1.setShipName("Drone");
+
+        spaceships2.setShipId(69);
+        spaceships2.setShipName("Flying Machine");
 
         alien.setId(06);
         alien.setName("Yugandhar");
         alien.setColor("brown");
-
-
-        spaceships.setShipId(69);
-        spaceships.setShipName("Flying Machine");
-//        spaceships.setAlien(alien);
-
-        alien.setSpaceships(spaceships);
+        alien.getSpaceships().add(spaceships1);
+        alien.getSpaceships().add(spaceships2);
 
         try {
 
@@ -39,7 +42,8 @@ public class App
             transaction = session.beginTransaction();
 
             session.save(alien);
-            session.save(spaceships);
+            session.save(spaceships1);
+            session.save(spaceships2);
 
             transaction.commit();
 

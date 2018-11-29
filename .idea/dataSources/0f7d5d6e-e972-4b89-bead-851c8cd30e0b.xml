@@ -833,59 +833,78 @@
     <table id="210" parent="2" name="alien">
       <Engine>MyISAM</Engine>
     </table>
-    <table id="211" parent="2" name="hibernate_sequence">
+    <table id="211" parent="2" name="alien_spaceships">
       <Engine>MyISAM</Engine>
     </table>
-    <table id="212" parent="2" name="spaceships">
+    <table id="212" parent="2" name="hibernate_sequence">
       <Engine>MyISAM</Engine>
     </table>
-    <column id="213" parent="210" name="id">
+    <table id="213" parent="2" name="spaceships">
+      <Engine>MyISAM</Engine>
+    </table>
+    <column id="214" parent="210" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="210" name="color">
+    <column id="215" parent="210" name="color">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="210" name="name">
+    <column id="216" parent="210" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="210" name="spaceships_shipId">
-      <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="217" parent="210" name="FKgre4urqmtpod1ma6hsomyuxoa">
-      <ColNames>spaceships_shipId</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="218" parent="210" name="PRIMARY">
+    <key id="217" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="219" parent="211" name="next_val">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="220" parent="212" name="shipId">
+    <column id="218" parent="211" name="Alien_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="212" name="shipName">
+    <column id="219" parent="211" name="spaceships_shipId">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="220" parent="211" name="UK_ph3gqv6inaq9nshhlo3ibao3k">
+      <ColNames>spaceships_shipId</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="221" parent="211" name="FKs4sixxrxlfnjgf6sad5vjyu5l">
+      <ColNames>Alien_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="222" parent="211" name="UK_ph3gqv6inaq9nshhlo3ibao3k">
+      <ColNames>spaceships_shipId</ColNames>
+      <UnderlyingIndexName>UK_ph3gqv6inaq9nshhlo3ibao3k</UnderlyingIndexName>
+    </key>
+    <column id="223" parent="212" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="224" parent="213" name="shipId">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="225" parent="213" name="shipName">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="222" parent="212" name="PRIMARY">
+    <key id="226" parent="213" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>shipId</ColNames>
       <Primary>1</Primary>

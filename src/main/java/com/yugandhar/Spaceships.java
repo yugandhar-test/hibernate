@@ -9,6 +9,14 @@ public class Spaceships {
     @Id
     private int shipId;
 
+    public Spaceships() {
+    }
+
+    public Spaceships(int shipId, String shipName) {
+        this.shipId = shipId;
+        this.shipName = shipName;
+    }
+
     private String shipName;
 
     public int getShipId() {

@@ -2,7 +2,9 @@ package com.yugandhar;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 //pojo
 @Entity
@@ -13,14 +15,14 @@ public class Alien {
     private String name;
     private String color;
 
-    @OneToOne
-    private Spaceships spaceships;
+    @OneToMany
+    private List<Spaceships> spaceships = new ArrayList<Spaceships>();
 
-    public Spaceships getSpaceships() {
+    public List<Spaceships> getSpaceships() {
         return spaceships;
     }
 
-    public void setSpaceships(Spaceships spaceships) {
+    public void setSpaceships(List<Spaceships> spaceships) {
         this.spaceships = spaceships;
     }
 
